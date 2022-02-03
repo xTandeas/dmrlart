@@ -23,7 +23,7 @@ app.use(routes);
 
 app.use((err, req, res, next) => {
     console.log(err);
-    return res.send('Internal Server Error');
+    return res.send('<h1>Internal Server Error</h1>');
 });
 
-app.listen(3000, () => console.log('Server is runnin on port 3000'));  
+app.listen(3000, () => console.log('Server is running on port 3000'));  
