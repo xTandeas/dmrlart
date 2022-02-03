@@ -4,8 +4,10 @@
 <div class="container">
     <h1>User panel</h1><br>
     <label for="emailchange">Email</label>
-    <input type="text" class="input" id="emailchange" value=<%= user.email %>>
-    <input style="padding: 4px 0; background-color:blue;" type="submit" value="Save">
+    <input type="email" class="input" id="emailchange" value=<%= user.email %>>
+    <label for="passwordchange">Password</label>
+    <input class="input" type="password" id="passwordchange" value=<%= user.password %>>
+    <input style="padding: 4px 0; background-color:blue;" type="submit" value="Save ">
 </div>
 <%- include('footer',{
     username: username,
