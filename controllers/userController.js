@@ -25,11 +25,14 @@ exports.settingsPage = async (req, res, next) => {
 
     res.render('settings', {
         user: row[0],
-        username: row[0].name
+        username: row[0].name,
+        
         
     });
 }
-
+exports.passwordchange = async (req, res, next) => {
+    
+}
 // Register Page
 exports.registerPage = (req, res, next) => {
     res.render("register");
@@ -84,11 +87,12 @@ exports.register = async (req, res, next) => {
 // Login Page
 exports.loginPage = (req, res, next) => {
     res.render("login");
+    console.log(bcrypt.getSalt("$2a$12$LyZmwaPab6mDlRPLFlzwOusTtthDR/h/AOxifSI.0Vq3yVeCdRDtW"))
 };
 
 // Login User
 exports.login = async (req, res, next) => {
-
+    
     const errors = validationResult(req);
     const { body } = req;
 
@@ -109,10 +113,12 @@ exports.login = async (req, res, next) => {
         }
 
         const checkPass = await bcrypt.compare(body._password, row[0].password);
-
+        
         if (checkPass === true) {
             req.session.userID = row[0].id;
+            
             return res.redirect('/');
+            
         }
 
         res.render('login', {
