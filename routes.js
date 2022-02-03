@@ -3,6 +3,7 @@ const { body } = require("express-validator");
 
 const {
     homePage,
+    settingsPage,
     register,
     registerPage,
     login,
@@ -24,7 +25,7 @@ const ifLoggedin = (req,res,next) => {
 }
 
 router.get('/', ifNotLoggedin, homePage);
-
+router.get('/settings', ifNotLoggedin, settingsPage)
 router.get("/login", ifLoggedin, loginPage);
 router.post("/login",
 ifLoggedin,

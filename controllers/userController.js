@@ -11,7 +11,21 @@ exports.homePage = async (req, res, next) => {
     }
 
     res.render('home', {
-        user: row[0]
+        user: row[0],
+        username: row[0].name
+        
+    });
+}
+exports.settingsPage = async (req, res, next) => {
+    const [row] = await dbConnection.execute("SELECT * FROM `users` WHERE `id`=?", [req.session.userID]);
+    
+    if (row.length !== 1) {
+        return res.redirect('/logout');
+    }
+
+    res.render('settings', {
+        user: row[0],
+        username: row[0].name
         
     });
 }

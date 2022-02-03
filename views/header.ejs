@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= (typeof(title) !== 'undefined') ? title : 'Dmrlart' %></title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <title>
+        <%= (typeof(title) !=='undefined' ) ? title : 'Dmrlart' %>
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Ubuntu:ital,wght@1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
+    <ul class="pheader">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Arts</a></li>
+
+        
+        <div style="float: right;" id="iflogged" class="dropdown">
+            <button class="dropbtn">
+                <%= (typeof(username) !=='undefined' ) ? username : 'Null' %>
+                    <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="settings">Settings</a>
+                <a href="logout">Logout</a>
+            </div>
+        </div>
+
+
+
+
+        </li>
+
+
+    </ul>

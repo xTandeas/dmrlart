@@ -12,7 +12,7 @@ html {
 
 body {
     background-color: #f7f7f7;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
     padding: 0;
     color: #222222;
@@ -20,14 +20,14 @@ body {
     overflow-wrap: break-word;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    padding: 50px;
+    
 }
 
 .container {
     background-color: white;
-    max-width: 450px;
+    max-width: 500px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 50px;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
     border-radius: 3px;
 }
@@ -39,7 +39,8 @@ body {
 
 input,
 button {
-    font-family: "Ubuntu", sans-serif;
+    
+    font-family: 'Ubuntu', sans-serif;
     outline: none;
     font-size: 1rem;
 }
@@ -48,8 +49,8 @@ button {
     padding: 10px;
     width: 100%;
     margin-bottom: 10px;
-    border: 1px solid #bbbbbb;
-    border-radius: 3px;
+    border: 2px solid #bbbbbb;
+    border-radius: 1px;
 }
 
 .input:hover {
@@ -61,10 +62,10 @@ button {
 }
 
 [type="submit"] {
-    background: #7fdf12;
+    background: #6db41b;
     color: white;
     border: 1px solid rgba(0, 0, 0, 0.175);
-    border-radius: 3px;
+    border-radius: 1px;
     padding: 12px 0;
     cursor: pointer;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -88,6 +89,7 @@ label {
 
 .link a {
     color: #0d6efd;
+    text-decoration: none;
 }
 
 .success-msg,
@@ -137,12 +139,86 @@ label {
     background-color: #dc3545;
     color: #ffffff;
 }
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(61, 55, 55, 0.075);
-    color: rgb(46, 46, 46);
-    text-align: center;
+
+  .pheader {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    max-height: 100px
   }
+  
+  .pheader li {
+    float: left;
+  }
+  
+  .pheader li a {
+    display: block;
+    color: white;
+    
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .pheader li a:hover {
+    background-color: #111;
+  }
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown{
+      margin-right: 40px
+  }
+ 
+  
+  

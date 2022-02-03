@@ -1,0 +1,12 @@
+<%- include('header',{
+    title: 'Dmrlart - Home'
+}) -%>
+<div class="container">
+    <h1>User panel</h1><br>
+    <label for="emailchange">Email</label>
+    <input type="text" class="input" id="emailchange" value=<%= user.email %>>
+    <input style="padding: 4px 0; background-color:blue;" type="submit" value="Save">
+</div>
+<%- include('footer',{
+    username: username,
+}) -%>
