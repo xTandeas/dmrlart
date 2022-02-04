@@ -7,6 +7,7 @@ const {
     register,
     registerPage,
     login,
+    emailchange,
     loginPage,
 } = require("./controllers/userController");
 
@@ -26,6 +27,15 @@ const ifLoggedin = (req,res,next) => {
 
 router.get('/', ifNotLoggedin, homePage);
 router.get('/settings', ifNotLoggedin, settingsPage)
+router.post('/changemail', ifNotLoggedin, [
+    body("_changemail", "Invalid email address")
+        .notEmpty()
+        .escape()
+        .trim()
+        .isEmail()
+
+],
+emailchange)
 router.get("/login", ifLoggedin, loginPage);
 router.post("/login",
 ifLoggedin,

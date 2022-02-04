@@ -1,14 +1,26 @@
-<%- include('header',{
-    title: 'Dmrlart - Home'
-}) -%>
-<div class="container">
-    <h1>User panel</h1><br>
-    <label for="emailchange">Email</label>
-    <input type="email" class="input" id="emailchange" value=<%= user.email %>>
-    <label for="passwordchange">Password</label>
-    <input class="input" type="password" id="passwordchange" value=<%= user.password %>>
-    <input style="padding: 4px 0; background-color:blue;" type="submit" value="Save ">
-</div>
-<%- include('footer',{
-    username: username,
-}) -%>
+<%- include('header',{ title: 'Dmrlart - Settings' }) -%>
+    <div class="container">
+        <form action="changemail" method="POST">
+            <h1>User panel</h1><br>
+            <label for="emailchange">Email</label>
+            <input name="_changemail" type="email" class="input" id="emailchange" value=<%=user.email %>>
+            <input class="input" type="password" name="oldpass" id="oldpass" placeholder="Current password">
+            <input class="input" type="password" name="newpass" id="newpass" placeholder="New password">
+            <input class="input" type="password" name="newpass2" id="newpass2" placeholder="New password again">
+            
+
+
+    
+    <% if(typeof msg !='undefined' ){ %>
+        <div class="success-msg">
+            <%= msg %>
+        </div>
+        <% } if(typeof error !=='undefined' ){ %>
+            <div class="err-msg">
+                <%= error %>
+            </div>
+            <% } %>
+                <input style="padding: 4px 0; background-color:blue;" type="submit" value="Save ">
+                </form>
+                </div>
+                <%- include('footer',{ username: username, }) -%>

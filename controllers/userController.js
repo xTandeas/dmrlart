@@ -30,8 +30,56 @@ exports.settingsPage = async (req, res, next) => {
         
     });
 }
-exports.passwordchange = async (req, res, next) => {
+exports.emailchange = async (req, res, next) => {
+    const errors = validationResult(req);
+    const { body } = req;
     
+    if (!errors.isEmpty()) {
+        return res.render('settings', {
+            error: errors.array()[0].msg
+        });
+    }
+
+    try {
+
+        
+        const [row] = await dbConnection.execute("SELECT * FROM `users` WHERE `id`=?", [req.session.userID]);
+        const [rowss] = await dbConnection.execute(
+            "SELECT * FROM `users` WHERE `email`=?",
+            [body._changemail]
+        );
+        if(row.email == body._changemail) return
+        if(rowss.length >= 1){
+            return res.render('settings',{
+                error: 'Email already in use',
+                user: row[0],
+                username: row[0].name
+            })
+        }
+        if (row.length != 1) {
+            return res.render('settings', {
+                error: 'Invalid email',
+                user: row[0],
+                username: row[0].name
+            });
+        }
+        const mail = await dbConnection.execute("UPDATE users SET email = ? WHERE id = ?;", [body._changemail, req.session.userID])
+        const [row2] = await dbConnection.execute("SELECT * FROM `users` WHERE `id`=?", [req.session.userID]);
+        res.render('settings', {
+            msg: 'You have successfully changed email',
+            user: row2[0],
+            username: row2[0].name
+        })
+
+    }
+    catch (e) {
+        next(e);
+    }
+}
+exports.passwordchange = async(req, res, next) => {
+    
+    const { body } = req;
+    if(body.oldpass == "")return
 }
 // Register Page
 exports.registerPage = (req, res, next) => {
